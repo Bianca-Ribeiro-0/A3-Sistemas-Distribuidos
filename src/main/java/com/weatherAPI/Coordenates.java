@@ -7,7 +7,7 @@ import java.util.Map;
 
 //to-do arrumar
 public class Coordenates {
-    public void buildCoordinates() {
+    public States buildCoordinates(String state) {
         Map<String, States> states = new HashMap<>();
         states.put("AC", new States("AC", "-8.77", "-70.55"));
         states.put("AL", new States("AL", "-9.71", "-35.73"));
@@ -37,5 +37,6 @@ public class Coordenates {
         states.put("SP", new States("SP", "-23.55", "-46.64"));
         states.put("TO", new States("TO", "-10.25", "-48.25"));
 
+        return states.get(state);
     }
 }
