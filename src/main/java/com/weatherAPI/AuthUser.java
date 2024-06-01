@@ -73,8 +73,8 @@ public class AuthUser {
                 // Adicionando o usuário ao HashMap e saindo do loop se o cadastro for bem-sucedido
                 users.put(user.getCpf(), user);
                 System.out.println("\n>> CADASTRO REALIZADO COM SUCESSO!\n");
-                ApiHandlerWeather apiHandler = new ApiHandlerWeather();
-                apiHandler.consultarClima(sc);
+                ApiHandler apiHandler = new ApiHandler();
+                apiHandler.consultarClimaPorEstado(sc);
                 return;
             }
         }
@@ -94,8 +94,8 @@ public class AuthUser {
                 User user = users.get(cpf);
                 if (user.getSenha().equals(senha)) {
                     System.out.println("Login realizado com sucesso!");
-                    ApiHandlerWeather apiHandler = new ApiHandlerWeather();
-                    apiHandler.consultarClima(sc);  //obs: to-do -> deve ser criada uma nova classe para juntar as duas apis, qnd criadas colocar esse método aqui!!
+                    ApiHandler apiHandler = new ApiHandler();
+                    apiHandler.consultarClimaPorEstado(sc); //obs: to-do -> deve ser criada uma nova classe para juntar as duas apis, qnd criadas colocar esse método aqui!!
                     return;
                 }
             }

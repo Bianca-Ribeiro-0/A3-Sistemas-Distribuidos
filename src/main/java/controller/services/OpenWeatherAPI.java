@@ -13,10 +13,10 @@ import java.io.InputStreamReader;
 
 public class OpenWeatherAPI {
 
-    public OpenWeather obterInformacoesClima(String countryCode) {
+    public OpenWeather obterInformacoesClima(String latitude, String longitude) {
         try {
             String key = "f03bc3941a1a17b8ad431281c40400de";
-            String completeUrl = String.format("https://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s", countryCode, key);
+            String completeUrl = String.format("https://api.openweathermap.org/data/2.5/weather?lat=%s&lon=%s&appid=%s", latitude, longitude, key);
 
             CloseableHttpClient httpClient = HttpClients.createDefault();
             HttpGet request = new HttpGet(completeUrl);

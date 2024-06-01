@@ -1,12 +1,13 @@
 package model;
 
 //{
-
+    
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
 import java.util.Map;
 
 
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OpenWeather {
     private Map<String, String> coord;
     private List<Map<String, String>> weather;;
