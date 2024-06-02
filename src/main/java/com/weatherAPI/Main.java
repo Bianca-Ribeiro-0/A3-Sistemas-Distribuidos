@@ -11,8 +11,14 @@ public class Main {
         // Instanciando a classe AuthUser
         AuthUser authUser = new AuthUser();
 
-        // Exibindo as opções de inicialização do sistema
-        authUser.inicializacaoSistema(scanner);
-
+        try {
+            // Exibindo as opções de inicialização do sistema
+            authUser.inicializacaoSistema(scanner);
+        } catch (Exception e) {
+            System.out.println("Ocorreu um erro durante a execução do programa." + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            scanner.close();
+        }
     }
 }
