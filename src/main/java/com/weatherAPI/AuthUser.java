@@ -11,7 +11,7 @@ public class AuthUser {
     public AuthUser() {
         this.users = new HashMap<>();
     }
-
+    /*Inicialização do sistema-  deve escolher uma das opções */
     public void inicializacaoSistema(Scanner scanner) {
         System.out.println("Bem-vindos! Por favor insira uma das opções abaixo: ");
         System.out.println("(1) - Login");
@@ -40,7 +40,7 @@ public class AuthUser {
             inicializacaoSistema(scanner);
         }
     }
-
+    /*cadastrando o usuario -- ele guarda as infos do cadastro no hashmap -- caso sucesso ele pode consultar o clima através do cep */
     public void cadastrar(Scanner scanner) {
         while (true) {
             User user = new User();
@@ -84,6 +84,7 @@ public class AuthUser {
         }
     }
 
+    /*logando o usuario -- ele guarda as infos do cadastro no hashmap -- caso sucesso ele pode consultar o clima através do cep */
     public void login(Scanner scanner) {
         while (true) {
             System.out.println("Insira as informações para realizar o login:");

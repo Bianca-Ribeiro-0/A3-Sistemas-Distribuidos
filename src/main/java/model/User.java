@@ -6,7 +6,6 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 
-/*separar melhor*/
 public class User {
     private String cpf;
     private String nome;

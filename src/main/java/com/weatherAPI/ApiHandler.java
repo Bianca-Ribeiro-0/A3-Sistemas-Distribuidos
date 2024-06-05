@@ -52,7 +52,6 @@ public class ApiHandler {
                 System.out.println("Data Local: " + datahoraBR.format(formatter) + "\n");
 
                 if (climaTempo.getWeather() != null && !climaTempo.getWeather().isEmpty()) {
-                    System.out.println("Análise sinótica:");
                     System.out.println("Condições do tempo: " + climaTempo.getWeather().get(0).get("description"));
 
                     double temperaturaKelvin = Double.parseDouble(climaTempo.getMain().get("temp").toString());
@@ -64,12 +63,12 @@ public class ApiHandler {
                     System.out.println("Temperatura máxima: " + df.format(temperaturaMaxKelvin - 273.15) + "°C");
                     System.out.println("Temperatura mínima: " + df.format(temperaturaMinKelvin - 273.15) + "°C");
 
+
+                    System.out.println("Informações adicionais sobre o clima no CEP: ");
                     System.out.println("Pressão atmosférica: " + climaTempo.getMain().getOrDefault("pressure", "Dados não disponíveis") + " hPa");
                     System.out.println("Umidade: " + climaTempo.getMain().getOrDefault("humidity", "Dados não disponíveis") + "%");
                     System.out.println("Velocidade do vento: " + climaTempo.getWind().getOrDefault("speed", "Dados não disponíveis") + " m/s");
                     System.out.println("Direção do vento: " + climaTempo.getWind().getOrDefault("deg", "Dados não disponíveis") + " graus");
-                } else {
-                    System.out.println("Análise sinótica não disponível");
                 }
             } else {
                 System.out.println("\nNão foi possível obter informações do clima para o estado especificado.");
@@ -90,12 +89,7 @@ public class ApiHandler {
 
             if (viaCep != null) {
                 System.out.println("\nInformações do CEP:");
-                System.out.println("CEP: " + viaCep.getCep());
-                System.out.println("Logradouro: " + viaCep.getLogradouro());
-                System.out.println("Complemento: " + viaCep.getComplemento());
-                System.out.println("Bairro: " + viaCep.getBairro());
-                System.out.println("Localidade: " + viaCep.getLocalidade());
-                System.out.println("UF: " + viaCep.getUf());
+                System.out.println("CEP: " + viaCep.getCep() + " Localidade: " + viaCep.getLocalidade() + " UF: " + viaCep.getUf());
 
                 States state = consultarClimaPorEstado(viaCep.getUf());
 
@@ -106,6 +100,25 @@ public class ApiHandler {
                 }
             } else {
                 System.out.println("\nNão foi possível obter informações para o CEP especificado.");
+            }
+
+            // Após consulta de clima
+            System.out.println("\nDeseja realizar outra operação?");
+            System.out.println("(1) - Voltar para Login/Cadastro");
+            System.out.println("(2) - Sair");
+            int opcao = Integer.parseInt(scanner.nextLine());
+
+            switch (opcao) {
+                case 1:
+                    AuthUser authUser = new AuthUser();
+                    authUser.inicializacaoSistema(scanner);
+                    break;
+                case 2:
+                    System.out.println("Saindo do sistema...");
+                    break;
+                default:
+                    System.out.println("Opção inválida. Saindo do sistema...");
+                    break;
             }
         } catch (Exception e) {
             System.out.println("Ocorreu um erro durante a consulta de ambos: " + e.getMessage());
