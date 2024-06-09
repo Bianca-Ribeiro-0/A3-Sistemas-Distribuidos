@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
+
 public class ApiHandler {
     private static final ViaCepAPI viaCepAPI = new ViaCepAPI();
     private static final OpenWeatherAPI openWeatherAPI = new OpenWeatherAPI();
@@ -63,7 +64,7 @@ public class ApiHandler {
                     System.out.println("Temperatura máxima: " + df.format(temperaturaMaxKelvin - 273.15) + "°C");
                     System.out.println("Temperatura mínima: " + df.format(temperaturaMinKelvin - 273.15) + "°C");
 
-
+                    System.out.println("===============================================");
                     System.out.println("Informações adicionais sobre o clima no CEP: ");
                     System.out.println("Pressão atmosférica: " + climaTempo.getMain().getOrDefault("pressure", "Dados não disponíveis") + " hPa");
                     System.out.println("Umidade: " + climaTempo.getMain().getOrDefault("humidity", "Dados não disponíveis") + "%");
@@ -121,7 +122,7 @@ public class ApiHandler {
                     break;
             }
         } catch (Exception e) {
-            System.out.println("Ocorreu um erro durante a consulta de ambos: " + e.getMessage());
+            System.out.println("Ocorreu um erro durante a consulta: " + e.getMessage());
         }
     }
 }
