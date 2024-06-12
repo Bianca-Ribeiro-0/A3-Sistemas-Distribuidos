@@ -15,6 +15,7 @@ import java.util.Map;
 
 public class ViaCepAPI {
 
+    //tratando informações e conexão com a api publica do ViaCep
     public static ViaCep getCepPorCep(String cep) {
         String jsonResponse = getCepResponse(cep);
         ViaCep viaCep = null;

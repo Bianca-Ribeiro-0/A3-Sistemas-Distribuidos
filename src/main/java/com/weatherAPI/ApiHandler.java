@@ -34,7 +34,7 @@ public class ApiHandler {
             return null;
         }
     }
-
+    //Tratamento das infos de clima tragas pela API
     private static void obterInformacoesClimaticas(String latitude, String longitude) {
         try {
             OpenWeather climaTempo = openWeatherAPI.obterInformacoesClima(latitude, longitude);
@@ -79,6 +79,7 @@ public class ApiHandler {
         }
     }
 
+    //Consulta Clima a partir do CEP
     public static void consultaAmbos(Scanner scanner) {
         try {
             System.out.println("Consulta de clima através do CEP enviado");
@@ -106,7 +107,8 @@ public class ApiHandler {
             // Após consulta de clima
             System.out.println("\nDeseja realizar outra operação?");
             System.out.println("(1) - Voltar para Login/Cadastro");
-            System.out.println("(2) - Sair");
+            System.out.println("(2) - Digite novamente");
+            System.out.println("(3) - Sair");
             int opcao = Integer.parseInt(scanner.nextLine());
 
             switch (opcao) {
@@ -115,6 +117,10 @@ public class ApiHandler {
                     authUser.inicializacaoSistema(scanner);
                     break;
                 case 2:
+                    ApiHandler apiHandler = new ApiHandler();
+                    apiHandler.consultaAmbos(scanner);
+                    break;
+                case 3:
                     System.out.println("Saindo do sistema...");
                     break;
                 default:
