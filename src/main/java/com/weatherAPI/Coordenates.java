@@ -5,7 +5,7 @@ import model.States;
 import java.util.HashMap;
 import java.util.Map;
 
-//to-do arrumar
+//Coordenadas de cada estado
 public class Coordenates {
     public States buildCoordinates(String state) {
         Map<String, States> states = new HashMap<>();

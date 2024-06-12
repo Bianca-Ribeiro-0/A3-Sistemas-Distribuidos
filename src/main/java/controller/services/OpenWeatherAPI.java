@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class OpenWeatherAPI {
-
+    //tratando informações e conexão com a api publica do WheaterAPI
     public OpenWeather obterInformacoesClima(String latitude, String longitude) {
         try {
             String key = "f03bc3941a1a17b8ad431281c40400de";
